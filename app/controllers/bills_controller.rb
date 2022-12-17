@@ -1,5 +1,5 @@
 class BillsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[importer import]
   before_action :set_bill, only: %i[ show edit update destroy ]
   skip_before_action :verify_authenticity_token, only: %i[ create ]
 
@@ -116,6 +116,20 @@ class BillsController < ApplicationController
       format.html { redirect_to bills_url, notice: "Bill was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def importer
+  end
+
+  def import
+    require 'csv'    
+
+
+    CSV.foreach(params[:csv_file].path, headers: true) do |row|
+      Sale.create! row.to_hash
+    end
+
+    format.html { redirect_to importer, notice: "imported...!" }
   end
 
   private

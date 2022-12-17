@@ -30,7 +30,13 @@ development:
   username: atefhamosa
   password: 6jwcUzEM3oDJ
   host: ep-shy-sun-524644.eu-central-1.aws.neon.tech
-  # database: computech_development
+  # url: postgres://adgtfokcdhlniq:9b3a0df25106759ee341d5ab12d825150dfed7256bc72064338894e461d8e408@ec2-3-217-251-77.compute-1.amazonaws.com:5432/d5v3l942fvogf8
+  # reconnect: false
+  # database: d5v3l942fvogf8
+  # pool: 5
+  # username: adgtfokcdhlniq
+  # password: 9b3a0df25106759ee341d5ab12d825150dfed7256bc72064338894e461d8e408
+  # host: ec2-3-217-251-77.compute-1.amazonaws.com
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

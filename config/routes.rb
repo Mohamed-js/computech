@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   resources :products
   resources :charges, only: [:index, :show, :new, :create]
   resources :clients
+  # get "/importer", to: "bills#importer"
+  # post "/import", to: "bills#import"
 end
