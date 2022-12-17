@@ -94,7 +94,11 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-  # database: computech_production
-  # username: computech
-  # password: <%= ENV['COMPUTECH_DATABASE_PASSWORD'] %>
+  # url: <%= ENV['DATABASE_URL'] %>
+  url: postgres://atefhamosa@ep-shy-sun-524644.eu-central-1.aws.neon.tech/management_system
+  reconnect: false
+  database: management_system
+  pool: 5
+  username: atefhamosa
+  password: 6jwcUzEM3oDJ
+  host: ep-shy-sun-524644.eu-central-1.aws.neon.tech
