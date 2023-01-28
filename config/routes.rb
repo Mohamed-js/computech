@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root "sales#index"
   get "/sell", to: "bills#new"
   get "/new-product", to: "home#new"
+  get "/reset-seq", to: "home#reset_seq"
+  
   get "/products/add-items", to: "home#create"
   resources :transactions do
     collection do
