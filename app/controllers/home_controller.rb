@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
-    before_action :authenticate_user!
-    before_action :authenticate_admin!, except: [:index]
+    before_action :authenticate_user!, except: [:reset_seq]
+    before_action :authenticate_admin!, except: [:index, :reset_seq]
     def index; end
     # NEW OR EXIST MENU
     def new; end
