@@ -27,6 +27,10 @@ class BillsController < ApplicationController
 
   # POST /bills or /bills.json
   def create
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     notes = ""
     @store = Store.first
     buyer = params['buyer'] ? params['buyer'] : nil
