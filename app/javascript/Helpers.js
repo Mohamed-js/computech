@@ -1,4 +1,4 @@
-const base = "http://computech-management-system.herokuapp.com";
+const base = "https://computech.onrender.com";
 // const base = 'http://127.0.0.1:3000';
 
 export const newBill = (bill) => {
