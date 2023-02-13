@@ -12,11 +12,11 @@ class SalesController < ApplicationController
 
     @products_value = Item.sum(:buying_price)
 
-    @sales = Sale.includes(:bill).order('id DESC').limit(25)
-    @total_sales = @sales.sum('selling_price * quantity') - discounts - debts
-    @total_profit = @total_sales - @sales.sum('buying_price * quantity') 
-    @month_sales = @sales.where('sales.created_at > ?', (this_month)).sum('selling_price * quantity') - month_discounts - month_debts
-    @month_profit = @month_sales - @sales.where('sales.created_at > ?', (this_month)).sum('buying_price * quantity') 
+    @sales = Sale.includes(:bill, :product).order('id DESC').limit(25)
+    @total_sales = @sales.sum('sales.selling_price * sales.quantity') - discounts - debts
+    @total_profit = @total_sales - @sales.sum('buying_price * sales.quantity') 
+    @month_sales = @sales.where('sales.created_at > ?', (this_month)).sum('sales.selling_price * sales.quantity') - month_discounts - month_debts
+    @month_profit = @month_sales - @sales.where('sales.created_at > ?', (this_month)).sum('buying_price * sales.quantity') 
   end
 
   def all
